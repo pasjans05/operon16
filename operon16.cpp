@@ -62,6 +62,30 @@ void Dwa()
 		plik >> liczba;
 		if (ileDziel(liczba)) cout << liczba << endl;
 	}
+	plik.close();
+	plik.open("liczby16.txt");
+}
+
+bool czyDosk(int n)
+{
+	int sum = 1;
+	if (n < 2) return false;
+	for (int i = 2; i <= n / 2; i++)
+	{
+		if (n % i == 0) sum += i;
+	}
+	if (n == sum) return true;
+	else return false;
+}
+
+void Trzy()
+{
+	int liczba;
+	for (int i = 0; i < 500; i++)
+	{
+		plik >> liczba;
+		if (czyDosk(liczba)) cout << liczba << endl;
+	}
 }
 
 int main()
@@ -69,6 +93,8 @@ int main()
 	cout << "16.1: " << Jeden()/2 << endl;
 	cout << "16.2: " << endl;
 	Dwa();
+	cout << "16.3: " << endl;
+	Trzy();
 }
 
 // Uruchomienie programu: Ctrl + F5 lub menu Debugowanie > Uruchom bez debugowania
